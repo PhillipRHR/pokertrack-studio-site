@@ -6,7 +6,7 @@
 
   <title>PokerTrack Studio - Preview Beta</title>
 
-  <meta name="description" content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos." />
+  <meta name="description" content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos e foco inicial em torneios MTT do 888poker." />
 
   <style>
     :root {
@@ -354,6 +354,22 @@
       font-size: 0.96rem;
     }
 
+    .screenshot-box {
+      background: rgba(21, 30, 43, 0.78);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    .screenshot-box img {
+      width: 100%;
+      display: block;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
     .download-box {
       display: flex;
       align-items: center;
@@ -504,6 +520,28 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="preview">
+      <div class="container">
+        <h2 class="section-title">Prévia real da interface</h2>
+
+        <p class="section-text">
+          Abaixo está uma captura real da interface atual do PokerTrack Studio. A tela mostra um torneio carregado,
+          com lista de mãos, filtros, estatísticas e painel de revisão.
+        </p>
+
+        <div class="screenshot-box">
+          <img
+            src="assets/pokertrack-preview.png"
+            alt="Captura de tela do PokerTrack Studio Preview Beta aberto no Windows"
+          />
+        </div>
+
+        <p class="small-note" style="margin-top: 14px;">
+          A interface ainda está em fase Preview Beta e pode receber ajustes visuais, correções e melhorias nas próximas versões.
+        </p>
       </div>
     </section>
 
