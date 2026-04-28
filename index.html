@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>PokerTrack Studio - Preview Beta</title>
-  <meta name="description" content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos." />
+
+  <meta
+    name="description"
+    content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos."
+  />
 
   <style>
     :root {
@@ -206,9 +211,17 @@
       margin-bottom: 10px;
     }
 
-    .mock-line.short { width: 72%; }
-    .mock-line.mid { width: 86%; }
-    .mock-line.long { width: 100%; }
+    .mock-line.short {
+      width: 72%;
+    }
+
+    .mock-line.mid {
+      width: 86%;
+    }
+
+    .mock-line.long {
+      width: 100%;
+    }
 
     .mock-stats {
       display: grid;
@@ -316,6 +329,56 @@
       font-weight: 800;
     }
 
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .tutorial-step {
+      background: rgba(21, 30, 43, 0.78);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #06100c;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .tutorial-step h3 {
+      font-size: 1.04rem;
+      margin-bottom: 8px;
+    }
+
+    .tutorial-step p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tutorial-note {
+      margin-top: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .tutorial-note strong {
+      color: var(--text);
+    }
+
     .download-box {
       display: flex;
       align-items: center;
@@ -355,7 +418,8 @@
 
     @media (max-width: 860px) {
       .hero-grid,
-      .grid {
+      .grid,
+      .tutorial-steps {
         grid-template-columns: 1fr;
       }
 
@@ -398,6 +462,7 @@
         <span class="brand-icon">PT</span>
         <span>PokerTrack Studio</span>
       </a>
+
       <p class="nav-note">Preview Beta para Windows</p>
     </div>
   </header>
@@ -421,6 +486,10 @@
               Baixar Preview para Windows
             </a>
 
+            <a class="button button-secondary" href="#tutorial">
+              Ver tutorial
+            </a>
+
             <a class="button button-secondary" href="#feedback">
               Enviar feedback
             </a>
@@ -439,6 +508,7 @@
           </div>
 
           <div class="mock-title">PokerTrack Studio</div>
+
           <div class="mock-line long"></div>
           <div class="mock-line mid"></div>
           <div class="mock-line short"></div>
@@ -544,6 +614,57 @@
       </div>
     </section>
 
+    <section id="tutorial">
+      <div class="container">
+        <h2 class="section-title">Como carregar um torneio</h2>
+
+        <p class="section-text">
+          Depois de instalar o PokerTrack Studio, você pode carregar um torneio salvo para revisar
+          as mãos e informações registradas. Siga o passo a passo abaixo.
+        </p>
+
+        <div class="tutorial-steps">
+          <article class="tutorial-step">
+            <div class="step-number">1</div>
+            <h3>Abra o programa</h3>
+            <p>
+              Execute o PokerTrack Studio pelo atalho criado na área de trabalho ou pelo menu iniciar do Windows.
+            </p>
+          </article>
+
+          <article class="tutorial-step">
+            <div class="step-number">2</div>
+            <h3>Vá até torneios</h3>
+            <p>
+              Na tela principal, procure a área de torneios ou a opção relacionada a carregar/revisar torneio.
+            </p>
+          </article>
+
+          <article class="tutorial-step">
+            <div class="step-number">3</div>
+            <h3>Carregue o torneio</h3>
+            <p>
+              Clique na opção de carregar torneio e selecione o torneio salvo que deseja revisar.
+            </p>
+          </article>
+
+          <article class="tutorial-step">
+            <div class="step-number">4</div>
+            <h3>Revise as informações</h3>
+            <p>
+              Depois de carregar, confira as mãos, dados e detalhes disponíveis para revisar seu jogo.
+            </p>
+          </article>
+        </div>
+
+        <div class="tutorial-note">
+          <strong>Observação:</strong>
+          esta é uma versão Preview Beta. Algumas telas, nomes de botões e fluxos ainda podem mudar
+          conforme o programa recebe correções e melhorias.
+        </div>
+      </div>
+    </section>
+
     <section id="download">
       <div class="container">
         <div class="download-box">
@@ -556,7 +677,12 @@
             </p>
           </div>
 
-          <a class="button button-primary" href="https://github.com/PhillipRHR/pokertrack-studio-site/releases/download/v0.1.0-preview/PokerTrackStudio_Preview_Setup_v0.1.0_Beta.exe" target="_blank" rel="noopener">
+          <a
+            class="button button-primary"
+            href="https://github.com/PhillipRHR/pokertrack-studio-site/releases/download/v0.1.0-preview/PokerTrackStudio_Preview_Setup_v0.1.0_Beta.exe"
+            target="_blank"
+            rel="noopener"
+          >
             Baixar Preview para Windows
           </a>
         </div>
@@ -579,17 +705,24 @@
         <div class="grid">
           <article class="card">
             <h3>E-mail</h3>
-            <p>Contato: <a href="mailto:philliplvt@gmail.com">philliplvt@gmail.com</a></p>
+            <p>
+              Contato:
+              <a href="mailto:philliplvt@gmail.com">philliplvt@gmail.com</a>
+            </p>
           </article>
 
           <article class="card">
             <h3>GitHub</h3>
-            <p>Você também pode usar a página de Releases ou Issues no GitHub para acompanhar atualizações.</p>
+            <p>
+              Você também pode usar a página de Releases ou Issues no GitHub para acompanhar atualizações.
+            </p>
           </article>
 
           <article class="card">
             <h3>Relato útil</h3>
-            <p>Ao enviar feedback, informe sua versão do Windows, o que aconteceu e, se possível, uma imagem do erro.</p>
+            <p>
+              Ao enviar feedback, informe sua versão do Windows, o que aconteceu e, se possível, uma imagem do erro.
+            </p>
           </article>
         </div>
       </div>
