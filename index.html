@@ -6,10 +6,7 @@
 
   <title>PokerTrack Studio - Preview Beta</title>
 
-  <meta
-    name="description"
-    content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos."
-  />
+  <meta name="description" content="PokerTrack Studio é um app desktop para Windows focado em organização e revisão de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos." />
 
   <style>
     :root {
@@ -211,17 +208,9 @@
       margin-bottom: 10px;
     }
 
-    .mock-line.short {
-      width: 72%;
-    }
-
-    .mock-line.mid {
-      width: 86%;
-    }
-
-    .mock-line.long {
-      width: 100%;
-    }
+    .mock-line.short { width: 72%; }
+    .mock-line.mid { width: 86%; }
+    .mock-line.long { width: 100%; }
 
     .mock-stats {
       display: grid;
@@ -329,14 +318,14 @@
       font-weight: 800;
     }
 
-    .tutorial-steps {
+    .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-top: 22px;
+      margin-top: 20px;
     }
 
-    .tutorial-step {
+    .step {
       background: rgba(21, 30, 43, 0.78);
       border: 1px solid var(--card-border);
       border-radius: 18px;
@@ -352,31 +341,17 @@
       display: grid;
       place-items: center;
       font-weight: 800;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .tutorial-step h3 {
+    .step h3 {
       font-size: 1.04rem;
       margin-bottom: 8px;
     }
 
-    .tutorial-step p {
+    .step p {
       color: var(--muted);
       font-size: 0.96rem;
-    }
-
-    .tutorial-note {
-      margin-top: 18px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 16px;
-      padding: 16px;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .tutorial-note strong {
-      color: var(--text);
     }
 
     .download-box {
@@ -419,7 +394,7 @@
     @media (max-width: 860px) {
       .hero-grid,
       .grid,
-      .tutorial-steps {
+      .steps {
         grid-template-columns: 1fr;
       }
 
@@ -486,17 +461,17 @@
               Baixar Preview para Windows
             </a>
 
-            <a class="button button-secondary" href="#tutorial">
-              Ver tutorial
+            <a class="button button-secondary" href="#waitlist">
+              Entrar na waitlist
             </a>
 
-            <a class="button button-secondary" href="#feedback">
-              Enviar feedback
+            <a class="button button-secondary" href="#tutorial">
+              Ver tutorial rápido
             </a>
           </div>
 
           <p class="small-note">
-            A Preview atual é limitada a 50 mãos. A versão completa futuramente terá análise sem esse limite.
+            A Preview atual é limitada a 50 mãos e foi pensada principalmente para torneios MTT do 888poker.
           </p>
         </div>
 
@@ -508,7 +483,6 @@
           </div>
 
           <div class="mock-title">PokerTrack Studio</div>
-
           <div class="mock-line long"></div>
           <div class="mock-line mid"></div>
           <div class="mock-line short"></div>
@@ -575,8 +549,8 @@
           </article>
 
           <article class="card">
-            <h3>Projeto em evolução</h3>
-            <p>Novas melhorias podem ser adicionadas conforme testes, correções e feedbacks.</p>
+            <h3>Foco inicial em 888poker MTT</h3>
+            <p>Esta Preview foi pensada principalmente para torneios MTT jogados no 888poker.</p>
           </article>
 
           <article class="card">
@@ -591,9 +565,10 @@
       <div class="container">
         <div class="notice">
           <strong>Aviso importante:</strong>
-          o PokerTrack Studio está em versão Preview Beta. Bugs, ajustes visuais e mudanças de funcionamento
-          ainda podem acontecer. Alguns idiomas ainda estão em processo de tradução; por enquanto,
-          a experiência pode estar mais completa em português/inglês, dependendo da tela.
+          o PokerTrack Studio está em versão Preview Beta. Esta versão foi pensada principalmente
+          para torneios MTT do 888poker. Outras salas, formatos de jogo ou históricos de mãos podem
+          não funcionar corretamente nesta versão inicial. Bugs, ajustes visuais e mudanças de funcionamento
+          ainda podem acontecer. Alguns idiomas ainda estão em processo de tradução e revisão.
         </div>
       </div>
     </section>
@@ -606,6 +581,8 @@
           <li>Disponível para Windows.</li>
           <li>Versão Preview Beta para testes iniciais.</li>
           <li>Limite de 50 mãos nesta versão.</li>
+          <li>Foco inicial em torneios MTT do 888poker.</li>
+          <li>Outras salas e formatos podem não funcionar corretamente nesta Preview.</li>
           <li>A versão completa futuramente terá análise sem esse limite.</li>
           <li>Outros idiomas ainda estão sendo traduzidos e revisados.</li>
           <li>Feedbacks são bem-vindos para melhorar o programa.</li>
@@ -616,52 +593,43 @@
 
     <section id="tutorial">
       <div class="container">
-        <h2 class="section-title">Como carregar um torneio</h2>
+        <h2 class="section-title">Tutorial rápido: como carregar um torneio</h2>
 
         <p class="section-text">
-          Depois de instalar o PokerTrack Studio, você pode carregar um torneio salvo para revisar
-          as mãos e informações registradas. Siga o passo a passo abaixo.
+          Depois de instalar o PokerTrack Studio, você pode carregar um torneio MTT do 888poker salvo
+          para revisar as mãos e informações registradas. Esta Preview ainda é inicial, então o ideal é testar
+          com poucos arquivos primeiro.
         </p>
 
-        <div class="tutorial-steps">
-          <article class="tutorial-step">
+        <div class="steps">
+          <article class="step">
             <div class="step-number">1</div>
-            <h3>Abra o programa</h3>
-            <p>
-              Execute o PokerTrack Studio pelo atalho criado na área de trabalho ou pelo menu iniciar do Windows.
-            </p>
+            <h3>Instale o programa</h3>
+            <p>Baixe o instalador, execute o arquivo e siga as etapas de instalação no Windows.</p>
           </article>
 
-          <article class="tutorial-step">
+          <article class="step">
             <div class="step-number">2</div>
-            <h3>Vá até torneios</h3>
-            <p>
-              Na tela principal, procure a área de torneios ou a opção relacionada a carregar/revisar torneio.
-            </p>
+            <h3>Abra o PokerTrack Studio</h3>
+            <p>Depois da instalação, abra o aplicativo pelo atalho criado ou pelo menu iniciar.</p>
           </article>
 
-          <article class="tutorial-step">
+          <article class="step">
             <div class="step-number">3</div>
-            <h3>Carregue o torneio</h3>
-            <p>
-              Clique na opção de carregar torneio e selecione o torneio salvo que deseja revisar.
-            </p>
+            <h3>Carregue um torneio</h3>
+            <p>Use a opção de carregar/importar torneio dentro do app e selecione o arquivo ou pasta do torneio salvo.</p>
           </article>
 
-          <article class="tutorial-step">
+          <article class="step">
             <div class="step-number">4</div>
-            <h3>Revise as informações</h3>
-            <p>
-              Depois de carregar, confira as mãos, dados e detalhes disponíveis para revisar seu jogo.
-            </p>
+            <h3>Revise os dados</h3>
+            <p>Confira as mãos, torneios e informações exibidas. Se algo não carregar corretamente, envie feedback.</p>
           </article>
         </div>
 
-        <div class="tutorial-note">
-          <strong>Observação:</strong>
-          esta é uma versão Preview Beta. Algumas telas, nomes de botões e fluxos ainda podem mudar
-          conforme o programa recebe correções e melhorias.
-        </div>
+        <p class="small-note" style="margin-top: 16px;">
+          Observação: nesta Preview, o fluxo foi pensado principalmente para torneios MTT do 888poker. Outros formatos podem precisar de ajustes futuros.
+        </p>
       </div>
     </section>
 
@@ -677,12 +645,7 @@
             </p>
           </div>
 
-          <a
-            class="button button-primary"
-            href="https://github.com/PhillipRHR/pokertrack-studio-site/releases/download/v0.1.0-preview/PokerTrackStudio_Preview_Setup_v0.1.0_Beta.exe"
-            target="_blank"
-            rel="noopener"
-          >
+          <a class="button button-primary" href="https://github.com/PhillipRHR/pokertrack-studio-site/releases/download/v0.1.0-preview/PokerTrackStudio_Preview_Setup_v0.1.0_Beta.exe" target="_blank" rel="noopener">
             Baixar Preview para Windows
           </a>
         </div>
@@ -690,6 +653,25 @@
         <p class="small-note" style="margin-top: 14px;">
           Arquivo: instalador para Windows. Não é necessário baixar código-fonte, pasta .dist ou arquivos extras.
         </p>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <div class="container">
+        <div class="download-box">
+          <div>
+            <h2>Quer ser avisado quando a versão completa sair?</h2>
+
+            <p>
+              Entre na lista de espera para receber uma atualização quando a versão completa do PokerTrack Studio
+              estiver disponível. A Preview atual é limitada a 50 mãos.
+            </p>
+          </div>
+
+          <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfeMv1X0NAhb-TSjKJvlFmnd6HnfObLElaMuTNIK5HSLKpL3g/viewform?usp=publish-editor" target="_blank" rel="noopener">
+            Entrar na waitlist
+          </a>
+        </div>
       </div>
     </section>
 
@@ -705,24 +687,17 @@
         <div class="grid">
           <article class="card">
             <h3>E-mail</h3>
-            <p>
-              Contato:
-              <a href="mailto:philliplvt@gmail.com">philliplvt@gmail.com</a>
-            </p>
+            <p>Contato: <a href="mailto:philliplvt@gmail.com">philliplvt@gmail.com</a></p>
           </article>
 
           <article class="card">
             <h3>GitHub</h3>
-            <p>
-              Você também pode usar a página de Releases ou Issues no GitHub para acompanhar atualizações.
-            </p>
+            <p>Você também pode usar a página de Releases ou Issues no GitHub para acompanhar atualizações.</p>
           </article>
 
           <article class="card">
             <h3>Relato útil</h3>
-            <p>
-              Ao enviar feedback, informe sua versão do Windows, o que aconteceu e, se possível, uma imagem do erro.
-            </p>
+            <p>Ao enviar feedback, informe sua versão do Windows, o que aconteceu e, se possível, uma imagem do erro.</p>
           </article>
         </div>
       </div>
