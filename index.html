@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokerTrack Studio - Preview Beta</title>
+  <meta name="description" content="PokerTrack Studio é um app desktop para Windows focado em análise e organização de mãos e torneios de poker. Versão Preview Beta com limite de 50 mãos." />
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-soft: #111823;
+      --card: #151e2b;
+      --card-border: #253246;
+      --text: #e8edf5;
+      --muted: #9aa8ba;
+      --accent: #3ddc97;
+      --accent-hover: #32c686;
+      --warning: #f4c542;
+      --danger-soft: rgba(244, 197, 66, 0.12);
+      --shadow: rgba(0, 0, 0, 0.35);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(61, 220, 151, 0.08), transparent 32%),
+        linear-gradient(180deg, #0b0f14 0%, #0d131c 55%, #090d12 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #1d8f68);
+      display: grid;
+      place-items: center;
+      color: #06100c;
+      font-weight: 800;
+      box-shadow: 0 12px 32px rgba(61, 220, 151, 0.18);
+    }
+
+    .nav-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 76px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid rgba(244, 197, 66, 0.35);
+      background: var(--danger-soft);
+      color: #ffe39a;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 6vw, 4.8rem);
+      line-height: 1.03;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 690px;
+      margin-bottom: 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #06100c;
+      box-shadow: 0 16px 34px rgba(61, 220, 151, 0.2);
+    }
+
+    .button-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border-color: var(--card-border);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .preview-card {
+      background: linear-gradient(180deg, rgba(21, 30, 43, 0.98), rgba(14, 20, 29, 0.98));
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 24px 80px var(--shadow);
+    }
+
+    .window-bar {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .mock-title {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .mock-line {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      margin-bottom: 10px;
+    }
+
+    .mock-line.short { width: 72%; }
+    .mock-line.mid { width: 86%; }
+    .mock-line.long { width: 100%; }
+
+    .mock-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(21, 30, 43, 0.78);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.04rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .notice {
+      background: rgba(244, 197, 66, 0.1);
+      border: 1px solid rgba(244, 197, 66, 0.28);
+      border-radius: 18px;
+      padding: 20px;
+      color: #f7dda0;
+    }
+
+    .notice strong {
+      color: #ffe59d;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .info-list li {
+      padding-left: 28px;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .info-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .download-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: linear-gradient(135deg, rgba(61, 220, 151, 0.12), rgba(21, 30, 43, 0.95));
+      border: 1px solid rgba(61, 220, 151, 0.25);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+    }
+
+    .download-box h2 {
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+    }
+
+    .download-box p {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0 42px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .download-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .mock-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="PokerTrack Studio">
+        <span class="brand-icon">PT</span>
+        <span>PokerTrack Studio</span>
+      </a>
+      <p class="nav-note">Preview Beta para Windows</p>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Preview Beta · versão inicial</div>
+          <h1>Analise suas mãos e torneios de poker com mais organização.</h1>
+          <p class="hero-text">
+            PokerTrack Studio é um app desktop para Windows criado para ajudar jogadores a registrar, revisar e estudar mãos e torneios de poker. Esta é uma versão Preview Beta, liberada para testes iniciais e feedbacks.
+          </p>
+
+          <div class="actions">
+            <a class="button button-primary" href="#" download>
+              Baixar Preview para Windows
+            </a>
+            <a class="button button-secondary" href="#feedback">
+              Enviar feedback
+            </a>
+          </div>
+
+          <p class="small-note">
+            A Preview permite testar o app com limite de 50 mãos. A versão completa futuramente terá análise sem esse limite.
+          </p>
+        </div>
+
+        <div class="preview-card" aria-label="Resumo visual do app PokerTrack Studio">
+          <div class="window-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="mock-title">PokerTrack Studio</div>
+          <div class="mock-line long"></div>
+          <div class="mock-line mid"></div>
+          <div class="mock-line short"></div>
+
+          <div class="mock-stats">
+            <div class="stat">
+              <strong>50</strong>
+              <span>mãos na Preview</span>
+            </div>
+            <div class="stat">
+              <strong>Win</strong>
+              <span>Windows app</span>
+            </div>
+            <div class="stat">
+              <strong>Beta</strong>
+              <span>em evolução</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">O que é o PokerTrack Studio?</h2>
+        <p class="section-text">
+          É uma ferramenta simples para organizar informações de mãos e torneios, facilitando a revisão do seu próprio jogo. A ideia é ajudar no estudo e na análise, sem prometer resultados financeiros ou ganhos no poker.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Recursos principais</h2>
+        <p class="section-text">
+          A versão atual ainda é inicial, mas já serve como base para testar o fluxo principal do programa.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Registro de mãos</h3>
+            <p>Organize mãos jogadas para revisar decisões importantes com mais clareza.</p>
+          </article>
+
+          <article class="card">
+            <h3>Análise de torneios</h3>
+            <p>Acompanhe informações de torneios e use os dados para estudar sua própria evolução.</p>
+          </article>
+
+          <article class="card">
+            <h3>Interface desktop</h3>
+            <p>Aplicativo feito para Windows, com foco em uso local e simples.</p>
+          </article>
+
+          <article class="card">
+            <h3>Preview limitada</h3>
+            <p>A versão Preview permite testar até 50 mãos antes da versão completa.</p>
+          </article>
+
+          <article class="card">
+            <h3>Projeto em evolução</h3>
+            <p>Novas melhorias podem ser adicionadas conforme testes, correções e feedbacks.</p>
+          </article>
+
+          <article class="card">
+            <h3>Sem promessas irreais</h3>
+            <p>O objetivo é apoiar estudo e organização. O app não promete lucro, ganhos ou vantagem garantida.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="notice">
+          <strong>Aviso importante:</strong> o PokerTrack Studio está em versão Preview Beta. Bugs, ajustes visuais e mudanças de funcionamento ainda podem acontecer. Alguns idiomas ainda estão em processo de tradução; por enquanto, a experiência pode estar mais completa em português/inglês, dependendo da tela.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Informações da Preview</h2>
+        <ul class="info-list">
+          <li>Disponível para Windows.</li>
+          <li>Versão Preview Beta para testes iniciais.</li>
+          <li>Limite de 50 mãos nesta versão.</li>
+          <li>A versão completa futuramente terá análise sem esse limite.</li>
+          <li>Outros idiomas ainda estão sendo traduzidos e revisados.</li>
+          <li>Feedbacks são bem-vindos para melhorar o programa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="download-box">
+          <div>
+            <h2>Baixar PokerTrack Studio Preview</h2>
+            <p>Instalador para Windows gerado com Inno Setup. Substitua o link do botão pelo arquivo hospedado no GitHub Releases, Google Drive, itch.io ou outra opção gratuita.</p>
+          </div>
+          <a class="button button-primary" href="SEU-LINK-DE-DOWNLOAD-AQUI" download>
+            Baixar agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <div class="container">
+        <h2 class="section-title">Feedback e contato</h2>
+        <p class="section-text">
+          Esta versão foi liberada para testes. Se você encontrar bugs, problemas de tradução, dificuldades no uso ou tiver sugestões, envie seu feedback.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>E-mail</h3>
+            <p>Coloque aqui seu e-mail de contato: seuemail@exemplo.com</p>
+          </article>
+
+          <article class="card">
+            <h3>GitHub</h3>
+            <p>Você também pode usar uma página de Issues ou Releases no GitHub para receber comentários.</p>
+          </article>
+
+          <article class="card">
+            <h3>Relato útil</h3>
+            <p>Ao enviar feedback, informe sua versão do Windows, o que aconteceu e, se possível, uma imagem do erro.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© 2026 PokerTrack Studio. Todos os direitos reservados.</p>
+      <p>Ferramenta de estudo e organização. Não promete lucro ou resultados no poker.</p>
+    </div>
+  </footer>
+</body>
+</html>
