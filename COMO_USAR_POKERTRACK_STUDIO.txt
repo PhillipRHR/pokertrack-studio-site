@@ -1,0 +1,119 @@
+POKERTRACK STUDIO - COMO USAR A PREVIEW BETA
+
+Obrigado por testar o PokerTrack Studio.
+
+Esta é uma versão Preview Beta, ainda em desenvolvimento. Ela foi criada para ajudar jogadores de poker a organizar e revisar mãos/torneios com mais clareza.
+
+IMPORTANTE:
+- Esta versão é limitada a 50 mãos.
+- O foco inicial é em torneios MTT do 888poker.
+- Outras salas, formatos ou históricos de mãos podem não funcionar corretamente.
+- O app não promete lucro, ganho financeiro ou resultado garantido no poker.
+- O objetivo é estudo, revisão e organização.
+
+
+1. COMO ABRIR O PROGRAMA
+
+Depois de instalar o PokerTrack Studio, abra o aplicativo pelo atalho criado na área de trabalho ou pelo menu iniciar do Windows.
+
+Na primeira abertura, o Windows pode mostrar um aviso do SmartScreen, porque o app ainda é novo e não possui assinatura digital.
+
+
+2. COMO CARREGAR UM TORNEIO
+
+Na tela principal do PokerTrack Studio:
+
+1. Clique em "Carregar um" para carregar um único arquivo de torneio.
+2. Ou clique em "Carregar vários" para carregar vários arquivos de uma vez.
+3. Selecione o arquivo ou os arquivos de histórico do torneio.
+4. Aguarde o app processar os dados.
+5. Depois disso, as mãos devem aparecer na lista principal.
+
+Se nada aparecer, o arquivo pode estar em um formato ainda não compatível com esta Preview.
+
+
+3. COMO REVISAR AS MÃOS
+
+Depois de carregar o torneio:
+
+- Use a aba "Mãos" para ver a lista de mãos.
+- Clique em uma mão da lista para ver os detalhes no painel lateral.
+- Veja informações como posição, cartas, blinds, stack, linha jogada e resultado.
+- Use as tags visuais para identificar mãos normais, big loss, big win, all-in, call/passivo e outras situações.
+
+
+4. COMO USAR OS FILTROS
+
+Na área de filtros, você pode procurar mãos específicas usando:
+
+- busca por mão/carta;
+- posição;
+- street;
+- tag;
+- torneio;
+- stack;
+- filtros como só VPIP, só all-in, só revisão, só big loss e só call/passivo.
+
+Os filtros servem para encontrar situações específicas e revisar melhor seu jogo.
+
+
+5. ABAS PRINCIPAIS
+
+O app possui várias abas:
+
+- Dashboard: visão geral dos dados carregados.
+- Mãos: lista das mãos e painel de revisão.
+- Gráficos: visualização gráfica dos resultados.
+- Revisão: área voltada para revisar spots importantes.
+- Replay: área para acompanhar a mão em formato de replay, quando disponível.
+- Leaks: área voltada para possíveis padrões problemáticos.
+- Bankroll: controle e organização de bankroll.
+- Relatório: resumo das informações analisadas.
+- Anotações: espaço para registrar observações.
+
+
+6. COMO SALVAR UM PROJETO
+
+Depois de carregar e revisar dados:
+
+1. Clique em "Salvar projeto".
+2. Escolha onde deseja salvar.
+3. Use "Abrir projeto" depois para continuar de onde parou.
+
+Isso ajuda a não precisar carregar tudo novamente toda vez.
+
+
+7. LIMITAÇÕES DA PREVIEW
+
+Esta versão ainda é inicial.
+
+Limitações conhecidas:
+
+- limite de 50 mãos;
+- foco inicial em torneios MTT do 888poker;
+- outros formatos podem falhar;
+- alguns idiomas ainda estão incompletos;
+- bugs visuais ou erros podem acontecer;
+- algumas funções podem estar bloqueadas para a versão completa futura;
+- CSV e relatório exportado podem estar disponíveis apenas na versão completa.
+
+
+8. COMO ENVIAR FEEDBACK
+
+Se você encontrar erro, bug ou algo confuso, envie feedback com:
+
+- versão do Windows;
+- o que você tentou fazer;
+- o que aconteceu;
+- se possível, uma imagem do erro;
+- se o problema aconteceu ao carregar um torneio, diga qual tipo de arquivo tentou carregar.
+
+Contato:
+philliplvt@gmail.com
+
+Site:
+https://philliprhr.github.io/pokertrack-studio-site/
+
+
+Obrigado por testar o PokerTrack Studio.
+Seu feedback ajuda muito a melhorar o programa.
